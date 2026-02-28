@@ -9,17 +9,23 @@ The function must also include a docstring explaining its operation and paramete
 """
 def factorial(n, show = False):
     if n == 0:
-        n += 1
+        return '0 x 0 = 0'
+    steps = []
     subtrator = n
     factorial = n
+    steps.append(n)
     while subtrator != 1:
         subtrator -= 1
         factorial *= subtrator
         if show:
-            return  f'{subtrator} x '
-
-    if show:
-       return f'= {factorial}'
+            steps.append(subtrator)
+    if n != 0 and show:
+        for pos, i in enumerate(steps):
+            if pos == len(steps) - 1:
+                print(f'{i} ', end = '')
+            else:
+             print(f'{i} x ', end = '')
+        return f'= {factorial}'
     else:
         return factorial
 
